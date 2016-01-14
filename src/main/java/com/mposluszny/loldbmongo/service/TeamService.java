@@ -11,6 +11,7 @@ public interface TeamService {
 	public List<Team> getTeams ();
 	public List<Team> getTeamsByName(String name);
 	public List<Team> getTeamsByRegion(String region);
+	public Team getTeam(ObjectId id);
 	public Team addTeam (Team team);
 	public Team updateTeam (Team team);
 	public void deleteTeam (Team team);

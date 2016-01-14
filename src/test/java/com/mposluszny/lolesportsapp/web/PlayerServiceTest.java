@@ -1,4 +1,4 @@
-package com.mposluszny.loldbmongo.service.impl;
+package com.mposluszny.lolesportsapp.web;
 
 import static org.junit.Assert.assertEquals;
 

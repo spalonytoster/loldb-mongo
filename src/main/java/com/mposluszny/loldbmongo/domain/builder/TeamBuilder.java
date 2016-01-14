@@ -8,7 +8,7 @@ import com.mposluszny.loldbmongo.domain.Player;
 import com.mposluszny.loldbmongo.domain.Team;
 
   /**
-	*private long idTeam;
+	*private ObjectId id;
 	*private String name;
 	*private String region;
 	*private String dateOfEstablishment;
