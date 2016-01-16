@@ -16,8 +16,6 @@
 		<constructor-arg ref="mongo" />
 		<constructor-arg name="databaseName" value="loldb"/>
 	</bean>
-	<bean id="teamService" class="com.mposluszny.loldbmongo.service.impl.TeamServiceImpl" />
-	<bean id="teamBean" class="com.mposluszny.lolesportsapp.web.teams.TeamBean" />
 	
 	<mongo:repositories base-package="com.mposluszny.loldbmongo.repositories" />
 	

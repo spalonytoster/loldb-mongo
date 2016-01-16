@@ -69,7 +69,7 @@
 				</c:if>
 				<c:if test="${!readonly}">
 					<form class="editRow" method="post">
-						<input type="hidden" value="${team.id}" name="id">
+						<input type="hidden" value="${team.id}" name="idTeam">
 						<div class="row">
 							<div class="one-third column">
 								<label for="nazwa">Nazwa</label>

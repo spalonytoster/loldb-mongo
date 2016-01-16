@@ -9,11 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mposluszny.loldbmongo.domain.Team;
 import com.mposluszny.loldbmongo.service.PlayerService;
 import com.mposluszny.loldbmongo.service.TeamService;
+import com.mposluszny.loldbmongo.service.impl.PlayerServiceImpl;
+import com.mposluszny.loldbmongo.service.impl.TeamServiceImpl;
 
 @WebServlet(urlPatterns="/teams/team")
 public class TeamServlet extends HttpServlet {
@@ -23,10 +26,9 @@ public class TeamServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 8452048539808160419L;
 	
-	@Autowired
-	TeamService teamService;
-	@Autowired
-	PlayerService playerService;
+	ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/beans.xml");
+	TeamService teamService = applicationContext.getBean(TeamServiceImpl.class);
+	PlayerService playerService = applicationContext.getBean(PlayerServiceImpl.class);
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,7 +62,6 @@ public class TeamServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		
 		Team team = new Team();
 

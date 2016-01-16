@@ -3,15 +3,13 @@ package com.mposluszny.lolesportsapp.web.teams;
 import java.io.Serializable;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mposluszny.loldbmongo.domain.Team;
-import com.mposluszny.loldbmongo.repositories.TeamRepository;
 import com.mposluszny.loldbmongo.service.TeamService;
+import com.mposluszny.loldbmongo.service.impl.TeamServiceImpl;
 
-@Component
 public class TeamBean implements Serializable {
 
 	/**
@@ -19,12 +17,9 @@ public class TeamBean implements Serializable {
 	 * Contains a Player list
 	 */
 	private static final long serialVersionUID = 1551523865258549328L;
-	
-	@Autowired
-	@Qualifier("teamService")
-	TeamService teamService;
-	@Autowired
-	TeamRepository teamRepository;
+
+	ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/beans.xml");
+	TeamService teamService = applicationContext.getBean(TeamServiceImpl.class);
 	
 	private boolean readonly = true;
 
